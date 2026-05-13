@@ -1,0 +1,83 @@
+<!--
+==================================================
+AUDIO VISUALIZER
+Archivo principal de la interfaz
+
+Aquí va:
+- estructura HTML
+- botones/sliders
+- canvas del visualizador
+- imports CSS/JS
+
+Evitar:
+- lógica compleja JS
+- estilos inline
+==================================================
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <title>Proyecto | Calculo Edition</title>
+</head>
+<body>
+
+    <main class="app-container">
+        <header class="main-header">
+            <h1>REPRODUCT<span>FFT</span> WPAPU</h1>
+            <div class="status-indicator">READY</div>
+        </header>
+
+        <section class="visualizer-container">
+            <canvas id="fft-canvas"></canvas>
+            
+            <div class="canvas-overlay">
+                <span id="freq-display">00.0 Hz</span>
+            </div>
+        </section>
+
+        <footer class="controls-panel">
+            
+           <div class="btn-group">
+    <button id="btn-play" class="control-btn play">
+        <svg viewBox="0 0 100 100" class="icon-svg">
+            <circle cx="50" cy="50" r="45" class="outer-ring"/>
+            <polygon points="40,30 70,50 40,70" class="shape"/>
+        </svg>
+    </button>
+
+    <button id="btn-stop" class="control-btn stop">
+        <svg viewBox="0 0 100 100" class="icon-svg">
+            <circle cx="50" cy="50" r="45" class="outer-ring"/>
+            <rect x="35" y="35" width="30" height="30" class="shape"/>
+        </svg>
+    </button>
+</div>
+
+            <div class="sliders-group">
+                <div class="input-wrapper">
+                    <label for="gain-slider">VOLUMEN</label>
+                    <input type="range" id="gain-slider" min="0" max="2" step="0.1" value="1">
+                </div>
+                <div class="input-wrapper">
+                    <label for="color-picker">COLOR</label>
+                    <input type="color" id="color-picker" value="#ff00ff">
+                </div>
+            </div>
+
+            <div class="track-info">
+                <p id="track-name">No haz subido archivos :(</p>
+                <input type="file" id="audio-upload" hidden>
+                <label for="audio-upload" class="upload-label">Cargando tu audio :D</label>
+            </div>
+
+        </footer>
+    </main>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
